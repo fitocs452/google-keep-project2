@@ -1,0 +1,73 @@
+$noteWidth: 300px;
+.textEditor{
+	position:relative;
+	margin-left: 50px;
+}
+
+.todoFilter{
+	text-align: center;
+
+}
+
+.notes{
+	float: left;
+}
+
+.todo{
+	width: $noteWidth - 100px;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.note{
+	margin-bottom: 5px;
+	float: left;
+	width: $noteWidth;
+	margin-right: 5px;
+	border: 2px solid black;
+	box-sizing: border-box;
+	position: relative
+}
+
+.title{
+	text-align: center;
+}
+
+.delete{
+	position: absolute;
+	top:0;
+	left: $noteWidth - 20px;
+}
+
+.color{
+	position: absolute;
+	top:0;
+	left: $noteWidth - 65px;
+}
+
+.addTodo{
+	margin-left: $noteWidth/5;
+}
+
+.div-break{
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

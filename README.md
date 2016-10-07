@@ -1,1 +1,2 @@
-# google-keep-project2
+# todo-react
+Example app with redux + react
