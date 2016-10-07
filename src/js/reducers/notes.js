@@ -14,6 +14,7 @@ const notes = (state = [], action) =>{
       return state;
   }
 }
+
 const note = (state = {}, action) =>{
   switch (action.type) {
     case 'ADD_NOTE':

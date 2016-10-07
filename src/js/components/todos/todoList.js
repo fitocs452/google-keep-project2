@@ -13,10 +13,13 @@ const Todo = ({ text, completed, onTodoClicked, onArchived, todo, elementId, set
         setUpdatedTime(Date(), elementId); 
       }
     }/>
+
     <div class="todo"
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}>{ text }</div>
+      style={{
+        textDecoration: completed ? 'line-through' : 'none'
+      }}>{ text }
+    </div>
+
     <div class="glyphicon glyphicon-remove" onClick={
       () => {
         onArchived(todo, elementId);

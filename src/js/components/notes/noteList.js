@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Note, ColorPicker, TextEditor, Delete } from './note.js';
+import { Note, ColorPicker, TextArea, Archive } from './note.js';
 
 const NotesList = ({ notes, setColor, setText, setArchive, setUpdatedTime }) => (
   <span class="notes">
@@ -18,12 +18,12 @@ const NotesList = ({ notes, setColor, setText, setArchive, setUpdatedTime }) => 
                 color={ note.color }
                 setUpdatedTime={ setUpdatedTime }
                 elementId={ note.id }/>
-            <TextEditor
+            <TextArea
                 setText={ setText }
                 text={ note.text }
                 setUpdatedTime={ setUpdatedTime }
                 elementId={ note.id }/>
-            <Delete
+            <Archive
                 setArchive={ () => setArchive(true, note.id ) }/>
         </div>
       ))

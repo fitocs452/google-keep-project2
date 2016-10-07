@@ -34,7 +34,7 @@ const AddTodo = ({ onAddTodo, children, elementId, setUpdatedTime }) => {
   );
 }
 
-const Delete = ({ setArchive, setUpdatedTime, elementId}) => (
+const Archive = ({ setArchive, setUpdatedTime, elementId}) => (
   <div class="glyphicon glyphicon-trash delete" onClick={
     () => {
       setArchive(true,elementId);
@@ -43,4 +43,4 @@ const Delete = ({ setArchive, setUpdatedTime, elementId}) => (
   }></div>
 );
 
-export { ColorPicker, AddTodo, Delete };
+export { ColorPicker, AddTodo, Archive };

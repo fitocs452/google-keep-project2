@@ -19,7 +19,7 @@ import { elementsVisibilityFilter } from './components/filters/elementsVisibilit
 
 // TodoNote, TodosNoteList, Todos components
 import { Todo, TodoList } from './components/todos/todoList';
-import { ColorPicker, AddTodo, Delete } from './components/todos/todosActions';
+import { ColorPicker, AddTodo, Archive } from './components/todos/todosActions';
 import { getVisibleTodos } from './components/todos/getVisibleTodos';
 import { TodoNotesList, AddTodoNote } from './components/todos/todoNoteList';
 
@@ -57,7 +57,6 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
   <div>
     <div>
       <div class="generalFilter">
-        <h2>App Filters</h2>
         <ProyectAppFooter
           currentVisibilityFilter = { visibilityFilter }
           onFilterClicked = {
@@ -72,7 +71,6 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
             }
           } />
 
-        <h2>Search Text</h2>
         <TextSearch
           currentVisibilityFilter={ visibilityFilter }
           setSearch={

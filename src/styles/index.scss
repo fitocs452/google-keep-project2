@@ -1,60 +1,68 @@
 $noteWidth: 300px;
-.textEditor{
-	position:relative;
-	margin-left: 50px;
+
+.generalFilter {
+    border: 5px solid black;
+    text-align: center;
 }
 
-.todoFilter{
-	text-align: center;
-
+.simple-filter {
+    display: inline-block;
+    margin-right: 40px;
+    margin-bottom: 15px;
 }
 
-.notes{
-	float: left;
+.addTodo {
+    margin-left: $noteWidth/5;
 }
 
-.todo{
-	width: $noteWidth - 100px;
-	display: inline-block;
-	padding-left: 10px;
+.color {
+    left: $noteWidth - 65px;
+    position: absolute;
+    top:0;
 }
 
-.note{
-	margin-bottom: 5px;
-	float: left;
-	width: $noteWidth;
-	margin-right: 5px;
-	border: 2px solid black;
-	box-sizing: border-box;
-	position: relative
+.delete {
+    left: $noteWidth - 20px;
+    position: absolute;
+    top:0;
 }
 
-.title{
-	text-align: center;
+.todoFilter {
+    text-align: center;
 }
 
-.delete{
-	position: absolute;
-	top:0;
-	left: $noteWidth - 20px;
+.note {
+    border: 2px solid black;
+    box-sizing: border-box;
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    position: relative;
+    width: $noteWidth;
 }
 
-.color{
-	position: absolute;
-	top:0;
-	left: $noteWidth - 65px;
+.notes {
+    float: left;
 }
 
-.addTodo{
-	margin-left: $noteWidth/5;
+.todo {
+    display: inline-block;
+    padding-left: 10px;
+    width: $noteWidth - 100px;
 }
 
-.div-break{
-	clear: both;
+.textEditor {
+    margin-left: 50px;
+    position:relative;
 }
 
+.title {
+    text-align: center;
+}
 
-
+.div-break {
+    clear: both;
+}
 
 
 

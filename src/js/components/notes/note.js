@@ -24,20 +24,20 @@ const Note = ({ title }) => (
   </div>
 );
 
-const Delete = ({ setArchive}) => (
+const Archive = ({ setArchive }) => (
   <div class="glyphicon glyphicon-trash delete" onClick={ setArchive }></div>
 );
 
-const TextEditor = ({ text, elementId, setText, setUpdatedTime }) => {
-  let input;
+const TextArea = ({ text, elementId, setText, setUpdatedTime }) => {
+  let color;
   return(
-    <textarea 
+    <textarea
       class="textEditor"
       defaultValue={text}
-      ref={ node => input = node }
+      ref={ node => color = node }
         onChange={
           () => {
-            setText(input.value, elementId );
+            setText(color.value, elementId );
             setUpdatedTime(Date(), elementId); 
           }
         }>
@@ -46,16 +46,15 @@ const TextEditor = ({ text, elementId, setText, setUpdatedTime }) => {
 }
 
 const ColorPicker = ({ color, elementId, setColor, setUpdatedTime }) => {
-  let input;
   return(
-    <input class="color" type="color" defaultValue={color} ref={ node => input = node } 
-        onChange={ 
-          () => {
-            setColor(input.value, elementId );
-            setUpdatedTime(Date(), elementId); 
-          }
-        }/>
-    );
+    <input class="color" type="color" defaultValue={color} ref={ node => color = node }
+      onChange={ 
+        () => {
+          setColor(color.value, elementId );
+          setUpdatedTime(Date(), elementId);
+        }
+      }/>
+  );
 }
 
-export { Note, AddNote, Delete, TextEditor, ColorPicker };
+export { Note, AddNote, Archive, TextArea, ColorPicker };

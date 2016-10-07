@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { TodoList } from './todoList';
-import { ColorPicker, Delete, AddTodo } from './todosActions';
+import { ColorPicker, Archive, AddTodo } from './todosActions';
 import { getVisibleTodos } from './getVisibleTodos'
 
 import { Footer } from '../filters/footer';
@@ -43,7 +43,7 @@ const TodoNotesList = ({ todoList, onAddTodo, onTodoClicked, onFilterClicked, on
                 elementId={ todoNote.id }
                 setUpdatedTime={ setUpdatedTime }/>
 
-              <Delete
+              <Archive
                 setArchive={setArchive }
                 setUpdatedTime={ setUpdatedTime }
                 elementId={ todoNote.id }/>
