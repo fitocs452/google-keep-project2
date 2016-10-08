@@ -11,7 +11,7 @@ const todoList = (state = [], action) => {
   let options = [
     'ADD_TODO',
     'TOGGLE_TODO',
-    'SET_VISIBILITY_FILTER',
+    'SET_TODO_VISIBILITY_FILTER',
     'SET_COLOR',
     'DELETE_TODO',
     'SET_TEXT',
@@ -43,7 +43,7 @@ const todoNote = (state = {}, action) =>{
           todos: todos(state.todos, action)
         };
       } 
-    case 'SET_VISIBILITY_FILTER':
+    case 'SET_TODO_VISIBILITY_FILTER':
       if(state.id === action.payload.elementId){
         return {
           ...state,

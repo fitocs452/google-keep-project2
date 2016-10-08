@@ -27,6 +27,10 @@ import { TodoNotesList, AddTodoNote } from './components/todos/todoNoteList';
 import { Note, AddNote } from './components/notes/note';
 import { NotesList } from './components/notes/noteList';
 
+// Undo and Redo
+import undoable from 'redux-undo';
+import { ActionCreators } from 'redux-undo';
+
 const { Component } = React;
 
 const todoApp = combineReducers({
@@ -36,21 +40,22 @@ const todoApp = combineReducers({
 });
 
 const loadState = () => {
-  try {
-    let result = JSON.parse(localStorage.getItem('sate'));
-    return result ? result : undefined;
-  } catch(err) {
+  try{
+    let result = JSON.parse(localStorage.getItem('sate'));; 
+    return result ? {past: [], present: result, future: []} : undefined;
+  }catch(err){
     return undefined;
   }
 }
-
 const saveState = (state) => {
-  try {
-    localStorage.setItem('sate', JSON.stringify(state));
-  } catch(err) {}
+  try{
+    localStorage.setItem('sate', JSON.stringify(state.present));
+  }catch(err){
+
+  }
 }
 
-const store = createStore(todoApp, loadState());
+const store = createStore(undoable(todoApp), loadState());
 
 let initial_color = '#FFFFF';
 const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
@@ -84,6 +89,20 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
               })
             }
           } />
+
+          <div class="undo-redo-container">
+              <button class="addNote" onClick={
+                () => {
+                  store.dispatch(ActionCreators.undo());
+                }
+              }>undo</button>
+
+              <button class="addNote" onClick={
+                () => {
+                  store.dispatch(ActionCreators.redo());
+                }
+              }>redo</button>
+          </div>
       </div>
     </div>
 
@@ -186,7 +205,7 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
         onFilterClicked = {
           (filter, elementId) => {
             store.dispatch({
-              type: 'SET_VISIBILITY_FILTER',
+              type: 'SET_TODO_VISIBILITY_FILTER',
               payload: { 
                 elementId: elementId,
                 visibilityFilter: filter 
@@ -277,7 +296,7 @@ const render = () => {
 
   ReactDOM.render(
     <ProyectApp
-      { ...store.getState() }
+      { ...store.getState().present }
     />,
     document.getElementById('root')
   );
