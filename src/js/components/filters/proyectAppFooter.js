@@ -5,7 +5,7 @@ import { FilterLink } from './filterLink';
 
 const ProyectAppFooter = ({ currentVisibilityFilter, onFilterClicked }) => (
   <div class="simple-filter">
-    <h2>App Filters</h2>
+    {/*<h2>App Filters</h2>*/}
     Filter: {' '}
     <FilterLink
       visibilityFilter="SHOW_ALL"

@@ -1,15 +1,18 @@
 $noteWidth: 300px;
 
 .generalFilter {
-    border: 5px solid black;
+    border: 3px solid black;
     text-align: center;
-    height: 250px;
+    height: 30px;
+    width: 100%;
 }
 
 .simple-filter {
     display: inline-block;
-    margin-right: 40px;
     margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+    border: 1px dotted green;
 }
 
 .addTodo {
@@ -66,15 +69,17 @@ $noteWidth: 300px;
 }
 
 .app-title {
-    float: left;
-    margin-left: 50px;
-    font-size: 50px;
+    //float: left;
+    //margin-left: 50px;
+    //font-size: 50px;
+    //height: 100%;
+    font-size: 15px;
 }
 
 .undo-redo {
-    width: 35px;
-    height: 35px;
-    margin-left: 50px;
+    //width: 35px;
+    //height: 35px;
+    //margin-left: 50px;
 }
 
 .undo-redo-container {
