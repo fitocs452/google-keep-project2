@@ -42,7 +42,7 @@ const todoApp = combineReducers({
 const loadState = () => {
   try{
     let result = JSON.parse(localStorage.getItem('sate'));; 
-    return result ? {past: [], present: result, future: []} : undefined;
+    return result ? {past: [], present: result } : undefined;
   }catch(err){
     return undefined;
   }
@@ -57,13 +57,16 @@ const saveState = (state) => {
 
 const store = createStore(undoable(todoApp), loadState());
 
-let initial_color = '#FFFFF';
+let initial_color = '#ffffff';
 const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
   <div>
     <div>
       <div class="generalFilter">
+        <div>
+          <h2 class="app-title">Google Keep</h2>
+        </div>
         <ProyectAppFooter
-          currentVisibilityFilter = { visibilityFilter }
+          currentVisibilityFilter = { visibilityFilter  ?  visibilityFilter  : 'SHOW_ALL' }
           onFilterClicked = {
             (filter) => {
               store.dispatch({
@@ -91,17 +94,17 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
           } />
 
           <div class="undo-redo-container">
-              <button class="addNote" onClick={
+              <button class="undo-redo fa fa-undo" onClick={
                 () => {
                   store.dispatch(ActionCreators.undo());
                 }
-              }>undo</button>
+              }></button>
 
-              <button class="addNote" onClick={
+              <button class="undo-redo glyphicon glyphicon-repeat" onClick={
                 () => {
                   store.dispatch(ActionCreators.redo());
                 }
-              }>redo</button>
+              }></button>
           </div>
       </div>
     </div>
@@ -239,7 +242,7 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
         }/>
 
       <NotesList
-        notes={ elementsVisibilityFilter(notes,visibilityFilter, 'SHOW_NOTE') } 
+        notes={ elementsVisibilityFilter(notes, visibilityFilter, 'SHOW_NOTE') } 
         setColor={
           (color, elementId) => {
             store.dispatch({

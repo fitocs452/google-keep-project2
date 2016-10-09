@@ -3,6 +3,7 @@ $noteWidth: 300px;
 .generalFilter {
     border: 5px solid black;
     text-align: center;
+    height: 250px;
 }
 
 .simple-filter {
@@ -64,18 +65,20 @@ $noteWidth: 300px;
     clear: both;
 }
 
+.app-title {
+    float: left;
+    margin-left: 50px;
+    font-size: 50px;
+}
 
+.undo-redo {
+    width: 35px;
+    height: 35px;
+    margin-left: 50px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.undo-redo-container {
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+}
