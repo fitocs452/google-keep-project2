@@ -197,7 +197,7 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
           setArchive = {
             (archive, elementId) => {
               store.dispatch({
-                type: 'SET_DELETED',
+                type: 'SET_ARCHIVED',
                 payload: {
                   archive: archive,
                   elementId: elementId
