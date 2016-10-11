@@ -79,10 +79,11 @@ const render = () => {
 const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
 
   <div>
-    <div style={{width:'100%', padding:'10px'}}>
+    <div style={{width:'99%', padding:'10px', backgroundColor: '#fb0'}}>
 
       <div class="app-title-container">
         <span class="app-title">Google Keep</span>
+        <p>Adolfo Morales 13014</p>
       </div>
 
       <div class="text-search-container">
@@ -116,7 +117,7 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
       </div>
     </div>
 
-    <div>
+    <div style={{ backgroundColor: '#fb0'}}>
       <div>
         <ProyectAppFooter
           currentVisibilityFilter = { visibilityFilter  ?  visibilityFilter  : 'SHOW_ALL' }
@@ -154,8 +155,10 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
                 }
               });
             }
-          }>Add todo list</AddTodoNote>
+          }>Add ToDo list</AddTodoNote>
+
         <div style={{marginTop:'10px', marginBottom:'10px'}}></div>
+
         <AddNote
           onAddNote={
             (title) => {

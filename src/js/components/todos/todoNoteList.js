@@ -14,11 +14,13 @@ const AddTodoNote = ({ onAddNote, children }) => {
   return (
     <div>
       <input type="text" ref={ node => input = node } placeholder={ children } onKeyDown={
-          (e) => { 
-            if(e.keyCode == 13){
-              onAddNote(input.value);
-              input.value = "";
+          (e) => {
+            if(e.keyCode !== 13) {
+              return;
             }
+
+            onAddNote(input.value);
+            input.value = "";
         }
       }
       />

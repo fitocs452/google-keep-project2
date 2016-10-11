@@ -25,6 +25,8 @@ const NotesList = ({ notes, setColor, setText, setArchive, setUpdatedTime }) => 
                 elementId={ note.id }/>
             <Archive
                 setArchive={ () => setArchive(true, note.id ) }/>
+            <p>createdAt: { note.createdAt }</p>
+            <p>updatedAt: { note.updatedAt }</p>
         </div>
       ))
     }

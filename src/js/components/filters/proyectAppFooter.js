@@ -24,6 +24,12 @@ const ProyectAppFooter = ({ currentVisibilityFilter, onFilterClicked }) => (
       currentVisibilityFilter={ currentVisibilityFilter.visibilityFilter }
       onFilterClicked={ onFilterClicked }
       >TodoList</FilterLink>
+    {' '}
+      <FilterLink
+      visibilityFilter="SHOW_ARCHIVED_TODO_LIST"
+      currentVisibilityFilter={ currentVisibilityFilter.visibilityFilter }
+      onFilterClicked={ onFilterClicked }
+      >Archived</FilterLink>
   </div>
 );
 

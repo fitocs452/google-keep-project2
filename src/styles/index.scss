@@ -1,5 +1,9 @@
 $noteWidth: 300px;
 
+.principal {
+    background-color: #e8e8e8;
+}
+
 .text-search-input {
     width: 90%;
     height: 30px;
@@ -12,14 +16,11 @@ $noteWidth: 300px;
     text-align: center;
 }
 
-.add-todo {
-    margin-left: $noteWidth/5;
-}
-
 .color {
-    left: $noteWidth - 65px;
+    left: $noteWidth - 55px;
     position: absolute;
     top: 15px;
+    border-radius: 50%;
 }
 
 .delete {
@@ -28,16 +29,10 @@ $noteWidth: 300px;
     top:0;
 }
 
-.todoFilter {
-    text-align: center;
-}
-
 .note {
-    // text-align: center;
     display: inline-block;
     border: 2px solid black;
     box-sizing: border-box;
-    // float: left;
     margin-bottom: 5px;
     margin-right: 5px;
     position: relative;
@@ -45,8 +40,11 @@ $noteWidth: 300px;
 }
 
 .notes {
-    // float: left;
     display: inline-block;
+}
+
+.add-note-input {
+    background-color: blue;
 }
 
 .add-notes {
@@ -60,11 +58,6 @@ $noteWidth: 300px;
     display: inline-block;
     padding-left: 10px;
     width: $noteWidth - 100px;
-}
-
-.textEditor {
-    // margin-left: 50px;
-    // position:relative;
 }
 
 .text-search-container {
@@ -87,8 +80,10 @@ $noteWidth: 300px;
 
 .app-title-container {
     width: 29%;
-    height: 30px;
+    height: 70px;
     display: inline-block;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .undo-redo-container {

@@ -4,6 +4,15 @@ import ReactDOM from 'react-dom';
 // Custom Function: Format Date
 import { getFormattedDate } from  '../../functions/functions'
 
+const Note = ({ title }) => (
+  <div class="title">
+    { title }
+  </div>
+);
+
+const Archive = ({ setArchive }) => (
+  <div class="fa fa-remove delete" onClick={ setArchive }></div>
+);
 
 const AddNote = ({ onAddNote, children }) => {
   let input;
@@ -21,16 +30,6 @@ const AddNote = ({ onAddNote, children }) => {
     </div>
   );
 }
-
-const Note = ({ title }) => (
-  <div class="title">
-    { title }
-  </div>
-);
-
-const Archive = ({ setArchive }) => (
-  <div class="fa fa-remove delete" onClick={ setArchive }></div>
-);
 
 const TextArea = ({ text, elementId, setText, setUpdatedTime }) => {
   let color;
@@ -51,7 +50,7 @@ const TextArea = ({ text, elementId, setText, setUpdatedTime }) => {
 
 const ColorPicker = ({ color, elementId, setColor, setUpdatedTime }) => {
   return(
-    <input class="color" type="color" defaultValue={color} ref={ node => color = node }
+    <input class="color round-button-circle" type="color" defaultValue={color} ref={ node => color = node }
       onChange={ 
         () => {
           setColor(color.value, elementId );

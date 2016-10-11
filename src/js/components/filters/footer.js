@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 import { FilterLink } from './filterLink';
 
 const Footer = ({ currentVisibilityFilter, onFilterClicked, elementId }) => (
-  <div class="todoFilter">
+  <div>
     Filter:
+    {' '}
     <FilterLink
       visibilityFilter="SHOW_ALL"
       currentVisibilityFilter={ currentVisibilityFilter }

@@ -8,28 +8,25 @@ import { FilterLink } from '../filters/filterLink';
 import { getFormattedDate } from  '../../functions/functions'
 
 
-const Todo = ({ text, completed, onTodoClicked, onArchived, todo, elementId, setUpdatedTime }) => (  
+const Todo = ({ text, completed, onTodoClicked, onArchived, todo, elementId, setUpdatedTime }) => (
   <li>
-   
-    <input type="checkbox" onClick={ 
+    <input type="checkbox" onClick={
       () => {
         onTodoClicked(todo, elementId);
         setUpdatedTime(getFormattedDate(), elementId); 
       }
     }/>
 
-    <div class="todo"
-      style={{
-        textDecoration: completed ? 'line-through' : 'none'
-      }}>{ text }
+    <div class="todo" style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+      { text }
     </div>
 
-    <div class="fa fa-remove" onClick={
-      () => {
+    <div class="fa fa-remove" onClick= { () => {
         onArchived(todo, elementId);
-        setUpdatedTime(getFormattedDate(), elementId); 
-      }
-    }></div>
+        setUpdatedTime(getFormattedDate(), elementId);
+    }}>
+
+    </div>
   </li>
 );
 

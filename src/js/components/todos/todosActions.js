@@ -23,7 +23,7 @@ const AddTodo = ({ onAddTodo, children, elementId, setUpdatedTime }) => {
 
   return (
     <div>
-      <input class="add-todo" type="text" ref={ node => input = node } placeholder={ children } onKeyDown={
+      <input type="text" ref={ node => input = node } placeholder={ children } onKeyDown={
           (e) => {
             if(e.keyCode != 13) {
               return;

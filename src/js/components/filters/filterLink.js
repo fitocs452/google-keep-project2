@@ -8,14 +8,15 @@ const FilterLink = ({ visibilityFilter, currentVisibilityFilter, onFilterClicked
   }
 
   return <a
-    href="#"
-    onClick={
-      (e) => {
-        e.preventDefault();
-        onFilterClicked(visibilityFilter, elementId );
+      href="#"
+      onClick={
+        (e) => {
+          e.preventDefault();
+          onFilterClicked(visibilityFilter, elementId );
+        }
       }
-    }>
-    { children }</a>
+    >{ children }
+    </a>
 }
 
 export { FilterLink };
