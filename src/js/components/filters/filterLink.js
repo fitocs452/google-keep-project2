@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 const FilterLink = ({ visibilityFilter, currentVisibilityFilter, onFilterClicked, elementId, children }) => {
 
-  if(visibilityFilter === currentVisibilityFilter){
+  if(visibilityFilter === currentVisibilityFilter) {
     return <strong>{ children }</strong>;
   }
 

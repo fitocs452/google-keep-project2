@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import deepFreeze from 'deep-freeze';
@@ -31,8 +31,12 @@ import { NotesList } from './components/notes/noteList';
 import undoable from 'redux-undo';
 import { ActionCreators } from 'redux-undo';
 
+// Middleware
+import { crashReporter } from './middleware/crashReporter';
+import { logger } from './middleware/logger';
 
-//Text search
+// Custom Function: Format Date
+import { getFormattedDate } from  './functions/functions'
 
 const { Component } = React;
 
@@ -58,7 +62,7 @@ const saveState = (state) => {
   }
 }
 
-const store = createStore(undoable(todoApp), loadState());
+const store = createStore(undoable(todoApp), loadState(), applyMiddleware(logger, crashReporter));
 
 let initial_color = '#ffffff';
 const render = () => {
@@ -76,10 +80,12 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
 
   <div>
     <div style={{width:'100%', padding:'10px'}}>
-      <div style={{width:'29%', border:'1px solid blue', height:'30px', display: 'inline-block'}}>
+
+      <div class="app-title-container">
         <span class="app-title">Google Keep</span>
       </div>
-      <div style={{width:'40%',border:'1px solid black', height:'30px', display: 'inline-block'}}>
+
+      <div class="text-search-container">
         <TextSearch
           currentVisibilityFilter={ visibilityFilter }
           setSearch={
@@ -94,23 +100,24 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
             }
           } />
       </div>
-      <div style={{width:'29%',border:'1px solid green', height:'30px', display: 'inline-block', textAlign: 'center'}}>
-        <button style={{marginRight: '5px'}} class="undo-redo fa fa-undo" onClick={
+
+      <div class="undo-redo-container">
+        <button class="fa fa-undo button" onClick={
           () => {
             store.dispatch(ActionCreators.undo());
           }
         }></button>
 
-        <button style={{marginLeft: '5px'}}class="undo-redo fa fa-repeat" onClick={
+        <button class="fa fa-repeat button" onClick={
           () => {
             store.dispatch(ActionCreators.redo());
           }
         }></button>
       </div>
     </div>
-    <div>
-      <div class="generalFilter">
 
+    <div>
+      <div>
         <ProyectAppFooter
           currentVisibilityFilter = { visibilityFilter  ?  visibilityFilter  : 'SHOW_ALL' }
           onFilterClicked = {
@@ -124,15 +131,12 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
               });
             }
           } />
-
       </div>
     </div>
 
-    <div class="div-break"></div>
-
     <div style={{border: '3px solid peru'}}>
       {/* Add notes */}
-      <div class="add-notes" style={{border:'1px dotted blue', display: 'block', width: '39%', float:'left'}}>
+      <div class="add-notes">
         <h2><span class="fa fa-plus" style={{fontSize:'20px'}}></span>Notes / To Do List</h2>
         <AddTodoNote
           onAddNote={
@@ -145,8 +149,8 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
                   visibilityFilter: 'SHOW_ALL',
                   color: initial_color,
                   archive: false,
-                  createdAt: Date(),
-                  updatedAt: Date()
+                  createdAt: getFormattedDate(),
+                  updatedAt: getFormattedDate()
                 }
               });
             }
@@ -163,8 +167,8 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
                   color: initial_color,
                   text: "",
                   archive: false,
-                  createdAt: Date(),
-                  updatedAt: Date()
+                  createdAt: getFormattedDate(),
+                  updatedAt: getFormattedDate()
                 }
               });
             }
@@ -173,7 +177,7 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
 
 
       {/*Notes container*/}
-      <div class="notes-container" style={{border: '1px dotted red', display: 'inline-block', width:'60%', float: 'left'}}>
+      <div class="notes-container">
         <h2>Your notes and Todo Lists</h2>
         <TodoNotesList
           todoList = { elementsVisibilityFilter(todoList, visibilityFilter, 'TODO') }

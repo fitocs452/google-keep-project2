@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Custom Function: Format Date
+import { getFormattedDate } from  '../../functions/functions'
+
+
 const ColorPicker = ({ color, elementId, setColor, setUpdatedTime }) => {
   let input;
   return(
@@ -8,7 +12,7 @@ const ColorPicker = ({ color, elementId, setColor, setUpdatedTime }) => {
       onChange={
         () => {
           setColor(input.value, elementId );
-          setUpdatedTime(Date(), elementId);
+          setUpdatedTime(getFormattedDate(), elementId);
         }
       }/>
   );
@@ -19,13 +23,13 @@ const AddTodo = ({ onAddTodo, children, elementId, setUpdatedTime }) => {
 
   return (
     <div>
-      <input class="addTodo" type="text" ref={ node => input = node } placeholder={ children } onKeyDown={
+      <input class="add-todo" type="text" ref={ node => input = node } placeholder={ children } onKeyDown={
           (e) => {
             if(e.keyCode != 13) {
               return;
             }
             onAddTodo(input.value, elementId);
-            setUpdatedTime(Date(), elementId);
+            setUpdatedTime(getFormattedDate(), elementId);
 
             input.value = "";
           }
@@ -35,10 +39,10 @@ const AddTodo = ({ onAddTodo, children, elementId, setUpdatedTime }) => {
 }
 
 const Archive = ({ setArchive, setUpdatedTime, elementId}) => (
-  <div class="glyphicon glyphicon-trash delete" onClick={
+  <div class="fa fa-remove delete" onClick={
     () => {
       setArchive(true,elementId);
-      setUpdatedTime(Date(),elementId);
+      setUpdatedTime(getFormattedDate(),elementId);
     }
   }></div>
 );

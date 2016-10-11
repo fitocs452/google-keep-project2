@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Custom Function: Format Date
+import { getFormattedDate } from  '../../functions/functions'
+
+
 const AddNote = ({ onAddNote, children }) => {
   let input;
 
   return (
     <div>
       <input type="text" ref={ node => input = node } placeholder={ children } onKeyDown={
-          (e) => { 
-            if(e.keyCode == 13){
+          (e) => {
+            if(e.keyCode == 13) {
               onAddNote(input.value);
               input.value = "";
             }
@@ -25,7 +29,7 @@ const Note = ({ title }) => (
 );
 
 const Archive = ({ setArchive }) => (
-  <div class="glyphicon glyphicon-trash delete" onClick={ setArchive }></div>
+  <div class="fa fa-remove delete" onClick={ setArchive }></div>
 );
 
 const TextArea = ({ text, elementId, setText, setUpdatedTime }) => {
@@ -38,7 +42,7 @@ const TextArea = ({ text, elementId, setText, setUpdatedTime }) => {
         onChange={
           () => {
             setText(color.value, elementId );
-            setUpdatedTime(Date(), elementId); 
+            setUpdatedTime(getFormattedDate(), elementId); 
           }
         }>
     </textarea>
@@ -51,7 +55,7 @@ const ColorPicker = ({ color, elementId, setColor, setUpdatedTime }) => {
       onChange={ 
         () => {
           setColor(color.value, elementId );
-          setUpdatedTime(Date(), elementId);
+          setUpdatedTime(getFormattedDate(), elementId);
         }
       }/>
   );

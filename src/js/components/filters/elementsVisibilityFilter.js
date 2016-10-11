@@ -5,7 +5,6 @@ const elementsVisibilityFilter = (list, visibilityFilter, option) => {
   let visibles = [];
   for (var i = 0; i < list.length; i++) {
     if (list[i].archive) {
-        console.log(list[i]);
         continue;
     }
 

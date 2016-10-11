@@ -4,13 +4,17 @@ import ReactDOM from 'react-dom';
 import { Footer } from '../filters/footer';
 import { FilterLink } from '../filters/filterLink';
 
+// Custom Function: Format Date
+import { getFormattedDate } from  '../../functions/functions'
+
+
 const Todo = ({ text, completed, onTodoClicked, onArchived, todo, elementId, setUpdatedTime }) => (  
   <li>
    
     <input type="checkbox" onClick={ 
       () => {
         onTodoClicked(todo, elementId);
-        setUpdatedTime(Date(), elementId); 
+        setUpdatedTime(getFormattedDate(), elementId); 
       }
     }/>
 
@@ -20,10 +24,10 @@ const Todo = ({ text, completed, onTodoClicked, onArchived, todo, elementId, set
       }}>{ text }
     </div>
 
-    <div class="glyphicon glyphicon-remove" onClick={
+    <div class="fa fa-remove" onClick={
       () => {
         onArchived(todo, elementId);
-        setUpdatedTime(Date(), elementId); 
+        setUpdatedTime(getFormattedDate(), elementId); 
       }
     }></div>
   </li>

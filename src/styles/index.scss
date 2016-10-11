@@ -1,10 +1,8 @@
 $noteWidth: 300px;
 
-.generalFilter {
-    border: 3px solid black;
-    text-align: center;
+.text-search-input {
+    width: 90%;
     height: 30px;
-    width: 100%;
 }
 
 .simple-filter {
@@ -12,17 +10,16 @@ $noteWidth: 300px;
     margin-bottom: 15px;
     width: 100%;
     text-align: center;
-    border: 1px dotted green;
 }
 
-.addTodo {
+.add-todo {
     margin-left: $noteWidth/5;
 }
 
 .color {
     left: $noteWidth - 65px;
     position: absolute;
-    top:0;
+    top: 15px;
 }
 
 .delete {
@@ -36,9 +33,11 @@ $noteWidth: 300px;
 }
 
 .note {
+    // text-align: center;
+    display: inline-block;
     border: 2px solid black;
     box-sizing: border-box;
-    float: left;
+    // float: left;
     margin-bottom: 5px;
     margin-right: 5px;
     position: relative;
@@ -46,7 +45,15 @@ $noteWidth: 300px;
 }
 
 .notes {
-    float: left;
+    // float: left;
+    display: inline-block;
+}
+
+.add-notes {
+    text-align: center;
+    display: block;
+    width: 29%;
+    float:left;
 }
 
 .todo {
@@ -56,8 +63,14 @@ $noteWidth: 300px;
 }
 
 .textEditor {
-    margin-left: 50px;
-    position:relative;
+    // margin-left: 50px;
+    // position:relative;
+}
+
+.text-search-container {
+    width: 40%;
+    height: 30px;
+    display: inline-block;
 }
 
 .title {
@@ -69,21 +82,32 @@ $noteWidth: 300px;
 }
 
 .app-title {
-    //float: left;
-    //margin-left: 50px;
-    //font-size: 50px;
-    //height: 100%;
-    font-size: 15px;
+    font-size: 50px;
 }
 
-.undo-redo {
-    //width: 35px;
-    //height: 35px;
-    //margin-left: 50px;
+.app-title-container {
+    width: 29%;
+    height: 30px;
+    display: inline-block;
 }
 
 .undo-redo-container {
-    float: right;
-    margin-top: 50px;
-    margin-right: 50px;
+    width: 29%;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+
+    *.button {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.notes-container {
+    border: 1px dotted red;
+    display: inline-block;
+    width: 70%;
+    float: left;
+    text-align: center;
 }

@@ -53,18 +53,20 @@ const TodoNotesList = ({ todoList, onAddTodo, onTodoClicked, onFilterClicked, on
                 elementId={ todoNote.id }
                 setUpdatedTime={ setUpdatedTime } >Add ToDo</AddTodo>
 
-                <TodoList
-                  todos={ getVisibleTodos( todoNote.todos, todoNote.visibilityFilter ) }
-                  onTodoClicked={ onTodoClicked }
-                  setUpdatedTime={ setUpdatedTime }
-                  onArchived={ onArchived }
-                  elementId={ todoNote.id } />
+              <TodoList
+                todos={ getVisibleTodos( todoNote.todos, todoNote.visibilityFilter ) }
+                onTodoClicked={ onTodoClicked }
+                setUpdatedTime={ setUpdatedTime }
+                onArchived={ onArchived }
+                elementId={ todoNote.id } />
 
-                <Footer
-                  currentVisibilityFilter={ todoNote.visibilityFilter } 
-                  onFilterClicked={ onFilterClicked }
-                  elementId={ todoNote.id }/>
+              <Footer
+                currentVisibilityFilter={ todoNote.visibilityFilter } 
+                onFilterClicked={ onFilterClicked }
+                elementId={ todoNote.id }/>
 
+              <p>createdAt: { todoNote.createdAt }</p>
+              <p>updatedAt: { todoNote.updatedAt }</p>
             </div>
           ))
         }
