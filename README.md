@@ -16,7 +16,7 @@ Gustavo Adolfo Morales Martinez 13014
 # Instructions
 
 - Clone Repo:
-    git clone https://github.com/fitocs452/google-keep-project2.git google-kepp-adolfo-13014
+    git clone https://github.com/fitocs452/google-keep-project2.git google-keep-adolfo-13014
 
 - Install dependencies
     npm install
