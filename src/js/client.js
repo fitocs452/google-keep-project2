@@ -40,6 +40,8 @@ import { getFormattedDate } from  './functions/functions'
 
 // Tests
 import { } from './e2e/visibilityFilter.spec'
+import { } from './e2e/notes.spec'
+import { } from './e2e/todosList.spec'
 
 const { Component } = React;
 
@@ -301,7 +303,7 @@ const ProyectApp = ({ todoList, visibilityFilter, notes }) => (
           setArchive={
             (archive, elementId) => {
               store.dispatch({
-                type: 'SET_NOTE_DELETED',
+                type: 'SET_NOTE_ARCHIVED',
                 payload: {
                   archive: archive,
                   elementId: elementId

@@ -6,6 +6,7 @@ const elementsVisibilityFilter = (list, visibilityFilter, option) => {
   for (var i = 0; i < list.length; i++) {
     if (visibilityFilter.visibilityFilter === 'SHOW_ARCHIVED_TODO_LIST') {
         if (list[i].archive) {
+            // console.log(list[i]);
             visibles.push(list[i]);
         }
         continue;
@@ -40,9 +41,10 @@ const elementsVisibilityFilter = (list, visibilityFilter, option) => {
     }
   };
 
-  if(visibilityFilter.visibilityFilter != undefined &&
+  if(visibilityFilter.visibilityFilter !== undefined &&
         (
             visibilityFilter.visibilityFilter === 'SHOW_ALL' ||
+            visibilityFilter.visibilityFilter === 'SHOW_ARCHIVED_TODO_LIST' ||
             visibilityFilter.visibilityFilter.includes(option)
         )
     ) {

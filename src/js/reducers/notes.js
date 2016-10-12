@@ -7,7 +7,7 @@ const notes = (state = [], action) =>{
       ];
     case 'SET_NOTE_COLOR':
     case 'SET_NOTE_TEXT':
-    case 'SET_NOTE_DELETED':
+    case 'SET_NOTE_ARCHIVED':
     case 'SET_UPDATED_AT':
       return state.map(t => note(t, action));
     default:
@@ -35,14 +35,14 @@ const note = (state = {}, action) =>{
           text: action.payload.text
         };
       }
-    case 'SET_NOTE_DELETED':
+    case 'SET_NOTE_ARCHIVED':
       if(state.id === action.payload.elementId){
         return {
           ...state,
           archive: action.payload.archive
         };
       }
-    case 'SET_MUPDATEDAT':
+    case 'SET_UPDATED_AT':
       if(state.id === action.payload.elementId){
         return {
           ...state,
