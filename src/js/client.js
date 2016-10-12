@@ -38,6 +38,9 @@ import { logger } from './middleware/logger';
 // Custom Function: Format Date
 import { getFormattedDate } from  './functions/functions'
 
+// Tests
+import { } from './e2e/visibilityFilter.spec'
+
 const { Component } = React;
 
 const todoApp = combineReducers({
